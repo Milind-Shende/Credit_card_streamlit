@@ -5,7 +5,7 @@ from typing import List
 
 #Provide the MongoDB Localhost URL to Connect Python to MongoDB.
 
-client= pymongo.MongoClient("mongodb+srv://Milind2487:mili%232487@milind2487.olvhy.mongodb.net/?retryWrites=true&w=majority")
+client= pymongo.MongoClient("mongodb+srv://Milind2487:mili%232487@milind2487.olvhy.mongodb.net/test")
 
 DATA_FILE_PATH="E:\Defaulters\Credit-Card\Credit_Card.csv"
 DATABASE_NAME="CreditCardDefault"
