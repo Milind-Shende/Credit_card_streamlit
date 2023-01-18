@@ -6,8 +6,8 @@ from datetime import datetime
 FILE_NAME = "defaulter.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
-# TRANSFORMER_OBJECT_FILE_NAME = "transformer.pkl"
-# TARGET_ENCODER_OBJECT_FILE_NAME = "target_encoder.pkl"
+TRANSFORMER_OBJECT_FILE_NAME = "transformer.pkl"
+ORDINAL_ENCODER_OBJECT_FILE_NAME = "ordinal_encoder.pkl"
 MODEL_FILE_NAME = "model.pkl"
 
 
@@ -47,14 +47,21 @@ class DataTrasformationConfig:
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         #Below code will create a file with name "data_transformation in artifact folder
         self.data_transformation_dir = os.path.join(training_pipeline_config.artifact_dir,"data_transformation")
-        #self.transform_object_path = os.path.join(self.data_transformation_dir,"transformer",TRANSFORMER_OBJECT_FILE_NAME)
+        self.transform_object_path = os.path.join(self.data_transformation_dir,"transformer",TRANSFORMER_OBJECT_FILE_NAME)
         self.transformed_train_path = os.path.join(self.data_transformation_dir,TRAIN_FILE_NAME.replace("csv","npz"))
         self.transformed_test_path = os.path.join(self.data_transformation_dir,TEST_FILE_NAME.replace("csv","npz"))
-        #self.target_encoder_path = os.path.join(self.data_transformation_dir,"target_encoder",TARGET_ENCODER_OBJECT_FILE_NAME)
+        self.ordinal_encoder_path = os.path.join(self.data_transformation_dir,"ordinal_encoder",ORDINAL_ENCODER_OBJECT_FILE_NAME)
 
 
 
 
 
-class ModelTrainerConfig:...
+class ModelTrainerConfig:
+    def __init__(self,training_pipeline_config:TrainingPipelineConfig):
+        self.model_trainer_dir = os.path.join(training_pipeline_config.artifact_dir,"model_trainer")
+        self.model_path = os.path.join(self.model_trainer_dir,'model',MODEL_FILE_NAME)
+        self.expected_score=0.5
+        self.overfitting_threshold = 0.1
+
+
 class ModelEvaluationConfig:...

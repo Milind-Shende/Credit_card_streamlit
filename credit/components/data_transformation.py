@@ -23,6 +23,38 @@ class DataTransformation:
         except Exception as e:
             raise CreditException(e, sys)
 
+    @classmethod
+    def get_data_transformer_object(cls)->Pipeline:
+        try:
+            Standard_Scaler=StandardScaler()
+            # Standard_Scaler= ColumnTransformer([
+            #     ("Numerical_column",StandardScaler(),[0,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22])])
+
+            # Ordinal_Encoder=ColumnTransformer([("Categorical_column",Ordinal_Encoder(),[1,2,3])],remainder='passthrough')
+
+            pipeline=Pipeline(steps=[('scaler',Standard_Scaler)])
+
+            return pipeline
+        except Exception as e:
+            raise CreditException(e,sys)
+                                    
+
+
+            # Standard_Scaler=StandardScaler()
+            # Ordinal_Encoder=OrdinalEncoder()
+
+            # #numerical pipeline
+            # logging.info("Creating Numerical Pipeline")
+            # numerical_pipeline=Pipeline([('feature_scaling',StandardScaler())],rema)
+
+            # #Categorical pipeline
+            # logging.info("Creating Categorical Pipeline")
+            # categorical_pipeline=Pipeline([('categorical_encoder', OrdinalEncoder())])
+
+            # logging.info("Combing both numerical and categorical pipeline")
+            # column_pipeline=ColumnTransformer([("numerical_pipeline",numerical_pipeline,train_numeric_columns),("categorical_pipeline",categorical_pipeline,train_categorical_columns)])
+
+
 
     
 
@@ -32,6 +64,8 @@ class DataTransformation:
             logging.info("Reading Train And Test File")
             train_df =pd.read_csv(self.data_ingestion_artifact.train_file_path)
             test_df = pd.read_csv(self.data_ingestion_artifact.test_file_path)
+            logging.info(train_df.shape)
+            logging.info(test_df.shape)
 
             logging.info("Spliting Train Into X_train And y_train")
             X_train = train_df.iloc[:,:-1]
@@ -67,33 +101,48 @@ class DataTransformation:
             logging.info('\nWe have {} Train categorical features : {}'.format(len(train_categorical_columns), train_categorical_columns))
             logging.info('\nWe have {} Test categorical features : {}'.format(len(test_categorical_columns), test_categorical_columns))
 
-            #numerical pipeline
-            logging.info("Creating Numerical Pipeline")
-            numerical_pipeline=Pipeline([('feature_scaling',StandardScaler())])
+            # #numerical pipeline
+            # logging.info("Creating Numerical Pipeline")
+            # numerical_pipeline=Pipeline([('feature_scaling',StandardScaler())])
 
-            #Categorical pipeline
-            logging.info("Creating Categorical Pipeline")
-            categorical_pipeline=Pipeline([('categorical_encoder', OrdinalEncoder())])
+            # #Categorical pipeline
+            # logging.info("Creating Categorical Pipeline")
+            # categorical_pipeline=Pipeline([('categorical_encoder', OrdinalEncoder())])
 
-            logging.info("Combing both numerical and categorical pipeline")
-            column_pipeline=ColumnTransformer([
-                ("numerical_pipeline",numerical_pipeline,train_numeric_columns),
-                ("categorical_pipeline",categorical_pipeline,train_categorical_columns)])
+            # logging.info("Combing both numerical and categorical pipeline")
+            # column_pipeline=ColumnTransformer([
+            #     ("numerical_pipeline",numerical_pipeline,train_numeric_columns),
+            #     ("categorical_pipeline",categorical_pipeline,train_categorical_columns)])
+            Ordinal_encoder=OrdinalEncoder()
 
-            train_df_X=column_pipeline.fit_transform(X_train)
-            test_df_X=column_pipeline.transform(X_test)
+            X_train=Ordinal_encoder.fit_transform(X_train[['SEX', 'EDUCATION', 'MARRIAGE']])
+            X_test=Ordinal_encoder.fit_transform(X_test[['SEX', 'EDUCATION', 'MARRIAGE']])
+
+
+            transformation_pipeline=DataTransformation.get_data_transformer_object()
+            transformation_pipeline.fit(X_train)
+
+            train_df_X=transformation_pipeline.transform(X_train)
+            test_df_X=transformation_pipeline.transform(X_test)
+            
 
 
             logging.info("Re-sampling the dataset using SMOTE method")
-            smote = SMOTETomek(sampling_strategy=0.5)
+            smote = SMOTETomek()
             X_train, y_train = smote.fit_resample(train_df_X,y_train)
             X_test, y_test = smote.fit_resample(test_df_X,y_test)
+            logging.info(X_train.shape)
+            logging.info(y_train.shape)
+            logging.info(X_test.shape)
+            logging.info(y_test.shape)
 
             logging.info("train and test array concatenate")
             #train and test array
             train_arr = np.c_[X_train, y_train ]
             test_arr = np.c_[X_test, y_test]
             
+
+
             logging.info("Saved train and test array to save_numpy_array_data")
             #save numpy array
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_train_path,
@@ -102,9 +151,15 @@ class DataTransformation:
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_test_path,
                                         array=test_arr)
 
+            utils.save_object(file_path=self.data_transformation_config.transform_object_path,obj=transformation_pipeline)
+
+            utils.save_object(file_path=self.data_transformation_config.ordinal_encoder_path,obj=Ordinal_encoder)
+
             data_transformation_artifact = artifact_entity.DataTransformationArtifact(
+                transform_object_path= self.data_transformation_config.transform_object_path,
                 transformed_train_path = self.data_transformation_config.transformed_train_path,
-                transformed_test_path = self.data_transformation_config.transformed_test_path)
+                transformed_test_path = self.data_transformation_config.transformed_test_path,
+                ordinal_encoder_path = self.data_transformation_config.ordinal_encoder_path)
 
             logging.info(f"Data transformation object {data_transformation_artifact}")
             return data_transformation_artifact
