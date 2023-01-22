@@ -5,6 +5,7 @@ from credit.entity import config_entity
 from credit.entity import artifact_entity
 from xgboost import XGBClassifier
 from sklearn.metrics import f1_score,accuracy_score,recall_score,precision_score,confusion_matrix,roc_curve,auc
+from sklearn.ensemble import RandomForestClassifier
 import os,sys
 
 
@@ -14,6 +15,7 @@ class ModelTrainer:
     def __init__(self,model_trainer_config:config_entity.ModelTrainerConfig,data_transformation_artifact:artifact_entity.DataTransformationArtifact):
 
         try:
+            logging.info(f"{'>>'*20} Model Trainer{'<<'*20}")
             self.model_trainer_config =model_trainer_config
             self.data_transformation_artifact=data_transformation_artifact
 
@@ -22,7 +24,8 @@ class ModelTrainer:
 
     def train_model(self,X,y):
         try:
-            xgboost_clf=XGBClassifier()
+            logging.info("Training Model With XgboostClassifier")
+            xgboost_clf=XGBClassifier(random_state= 0, n_estimators= 130, max_depth= 7)
             xgboost_clf.fit(X,y)
             return xgboost_clf
         except Exception as e:
@@ -48,6 +51,7 @@ class ModelTrainer:
             yhat_test=model.predict(X_test)
             f1_test_score=f1_score(y_true=y_test,y_pred=yhat_test)
 
+            logging.info(f"train score:{f1_train_score} and tests score {f1_test_score}")
             #Check for overfitting or underfitting or expected score
             """Overfitting mean good accuracy on training score but not getting good accuracy on test score
 
@@ -74,7 +78,7 @@ class ModelTrainer:
             logging.info(f"Prepare the artifact")
             model_trainer_artifact = artifact_entity.ModelTrainerArtifact(model_path=self.model_trainer_config.model_path,
             f1_train_score=f1_train_score,f1_test_score=f1_test_score)
-            logging.info(f"model_trainer_artifact")
+            logging.info(f"Model trainer artifact: {model_trainer_artifact}")
             return model_trainer_artifact
         except Exception as e:
             raise CreditException(e,sys)

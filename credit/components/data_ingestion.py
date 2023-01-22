@@ -34,21 +34,25 @@ class DataIngestion:
             # df.rename(columns={'PAY_0':'PAY_1'},inplace=True)
             # df.rename(columns={'default.payment.next.month':'Default_Prediction'},inplace=True)
 
-            # logging.info("Replacing values in the features with their Actual names")
-            # #Replacing values in the features with their Actual names
-            # df['SEX'] = df['SEX'].replace({1:'male', 2:'female'})
+            logging.info("Replacing values in the features with their Actual names")
+            #Replacing values in the features with their Actual names
+            df['SEX'] = df['SEX'].replace({1:'male', 2:'female'})
 
-            # logging.info("Here, we have some other values in Education like {0,4,5,6} which are not in first 3 categories")
-            # logging.info("So, we are replacing all with section 4")
-            # #Here, we have some other values in Education like {0,4,5,6} which are not in first 3 categories.
-            # #So, we are replacing all with section 4
-            # df['EDUCATION']=df['EDUCATION'].replace({0:4,5:4,6:4})
-            # df['EDUCATION']=df['EDUCATION'].replace({1:'graduate school',2:'university',3:'high school',4:'others'})
+            logging.info("Here, we have some other values in Education like {0,4,5,6} which are not in first 3 categories")
+            logging.info("So, we are replacing all with section 4")
+            #Here, we have some other values in Education like {0,4,5,6} which are not in first 3 categories.
+            #So, we are replacing all with section 4
+            df['EDUCATION']=df['EDUCATION'].replace({0:4,5:4,6:4})
+            df['EDUCATION']=df['EDUCATION'].replace({1:'graduate school',2:'university',3:'high school',4:'others'})
 
-            # logging.info("Doing the transformation to Marriage columns")
-            # #Doing the transformation to Marriage columns
-            # df['MARRIAGE']=df['MARRIAGE'].replace({0:3})
-            # df['MARRIAGE']=df['MARRIAGE'].replace({1:'married',2:'single',3:'others'})    
+            logging.info("Doing the transformation to Marriage columns")
+            #Doing the transformation to Marriage columns
+            df['MARRIAGE']=df['MARRIAGE'].replace({0:3})
+            df['MARRIAGE']=df['MARRIAGE'].replace({1:'married',2:'single',3:'others'})  
+
+
+            logging.info("Replacing 1 value wit Yes and 0 value with No")
+            df['Default']=df['Default'].replace({1:"Yes",0:"No"})  
 
             # logging.info("We are replacing the values of all PAY_X features -1,-2 with 0.")
             # #We are replacing the values of all PAY_X features -1,-2 with 0.
@@ -85,6 +89,7 @@ class DataIngestion:
             #Save df to feature store folder
             train_df.to_csv(path_or_buf=self.data_ingestion_config.train_file_path,index=False,header=True)
             test_df.to_csv(path_or_buf=self.data_ingestion_config.test_file_path,index=False,header=True)
+            logging.info(train_df.info())
             
             #Prepare artifact
 
