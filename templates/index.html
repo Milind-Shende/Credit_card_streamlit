@@ -4,136 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="E:\Defaulters\Credit-Card\webapp\static\style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,900;1,100&display=swap" rel="stylesheet">
-    <title>Credit Card</title>
+    <title>Credit_Card</title>
     <style>
-        .limit {
-            padding-left: 20px;
-            box-sizing: border-box;
-            
-        }
-        .sex{
-            padding-left: 20px;
-            
-
-        }
-        .education{
-            padding-left: 20px;
-           
-
-        }
-        .marriage{
-            padding-left: 20px;
-        }
-        .age{
-            padding-left: 20px;
-        }
-        .Repayment{
-            padding-left: 20px;
-        }
-        .bill{
-            padding-left: 20px;
-        }
-        .Pay{
-            padding-left: 20px;
-        }
-        .button{
-            padding-left: 20px;
-        }
-        *{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;;
-
-}
-.credit{
-        min-width: 50vh;
-        width: 50%;
-        background-color: #065d57e1;
-
-}
-nav{
-    display: flex;
-    padding: 2% 6%;
-    justify-content: space-between;
-    align-items: center;
-    
-}
-nav img{
-    width: 50px;
-
-}
-.nav-links{
-    flex: 1;
-    text-align: right;
-    
-}
-
-.nav-links ul li{
-    list-style: none;
-    display: inline-block;
-    padding: 8px 12px;
-    position: relative;
-    
-}
-.nav-links ul li a{
-    /* color: #fff; */
-    text-decoration: none;
-    font-size: 13px;
-}
-.nav-links ul li::after{
-    content: "";
-    width: 0%;
-    height: 2px;
-    background: #440903e1;
-    display: block;
-    margin: auto;
-    transition: 0.5s;
-}
-.nav-links ul li:hover::after{
-    width: 100%;
-}
-label{
-        color: rgb(206, 206, 206);
-        color:black
-    }
-
-#bio{
-    color:black
-}
-#amt{
-    color: black
-}
-#Rep{
-    color:black
-}
-#pay{
-    color: black}
-
-body{
-  min-width: 50vh;
-  width: 50%;
+      body{
+  min-width: 100vh;
+  width: 100%;
   background-color: #065d57e1;
+  padding: 100px;
 }
     </style>
 </head>
 <body>
-    <h2 style="font-size: 30; text-align: center; font-weight: bold; "><u>Credit Card Defaulter Prediction</u></h2>
+    <h2 style="text-align: center; padding-right: 150px;"><u>Credit Card Defaulter Prediction</u></h2>
     <section class="header">
-        <nav>
-            <a href="index.html"><img src="logo1.png"></a>
-            <div class="nav-links" >
-              <h2 style="font-size: 30; text-align: center; font-weight: bold; "><u>Credit Card Defaulter Prediction</u></h2>
+      <nav>
+          <a href="index.html"></a>
+          <div class="nav-links" >
                 <ul >
-                    <li><a href="https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset/" target="_blank">About</a></li>
-                    <li><a href="https://github.com/Milind-Shende/Credit-Card" target="_blank">Github</a></li>
-                </ul>
-            </div>
-        </nav>
-    </section>
+                  <li><a href="https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset/" target="_blank" style="padding-right: 100px;">About</a></li>
+                  <li><a href="https://github.com/Milind-Shende/Credit-Card" target="_blank" style="padding-right: 100px;">Github</a></li>
+              </ul>
+          </div>
+      </nav>
+  </section>
     <form action="{{ url_for('predict')}} " method="post">
             
         
@@ -308,9 +201,8 @@ body{
   
   <br><br>
   
-  <button type="submit" class="btn btn-primary btn-block btn-large" style="padding: 10px 15px" value="Predict">Predict</button>
-  
-  </form>
-  {{prediction_text}}
+  <button type="submit" class="btn btn-primary btn-block btn-large" style="padding: 10px 15px" >Predict</button>
+      {{ prediction_text }}
+    </form>
 </body>
 </html>

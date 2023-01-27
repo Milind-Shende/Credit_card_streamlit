@@ -73,7 +73,7 @@ def predict():
         # input_arr=np.array(list(inputs.values())).reshape(1,24)
         df=transfomer.transform(np.array(list(inputs.values())).reshape(1,23))
         # [df.np.array().reshape(1,2)]
-        prediction=model.predict(df)[0]
+        prediction=model.predict(df)
         print(prediction)
         
 

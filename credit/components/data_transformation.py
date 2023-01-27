@@ -122,6 +122,7 @@ class DataTransformation:
             # # Standard_Scaler=StandardScaler()
 
             # transformation_pipleine = DataTransformation.get_data_transformer_object()
+            logging.info("Applying Standard Scaler")
             scaler=StandardScaler()
             scaler.fit(X_train)
 
@@ -140,10 +141,10 @@ class DataTransformation:
             
 
             # logging.info("column_pipeline transformation for Input variable")
-            # scaler.fit(X_train)
+            # column_pipeline.fit(X_train)
 
-            # X_train=scaler.transform(X_train)
-            # X_test=scaler.transform(X_test)
+            # X_train=column_pipeline.transform(X_train)
+            # X_test=column_pipeline.transform(X_test)
             
 
 
