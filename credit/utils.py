@@ -8,6 +8,7 @@ from credit.constant import mongo_client
 import numpy as np
 import dill
 import yaml
+from sklearn.preprocessing import OneHotEncoder,OrdinalEncoder,StandardScaler,MinMaxScaler,LabelEncoder
 
 def get_collection_as_dataframe(database_name:str,collection_name:str)->pd.DataFrame:
     """
@@ -100,3 +101,11 @@ def convert_columns_float(df:pd.DataFrame,exclude_columns:list)->pd.DataFrame:
         return df
     except Exception as e:
         raise e
+
+def preprocess_input(input_df):
+    # one-hot-encode the categorical columns
+    input_df = pd.get_dummies(input_df, columns=["categorical_col_name"])
+    # Scale numerical columns
+    numerical_cols = ["numerical_col_name"]
+    input_df[numerical_cols] =  StandardScaler().fit_transform(input_df[numerical_cols])
+    return input_df

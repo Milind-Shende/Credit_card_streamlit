@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="E:\Defaulters\Credit-Card\webapp\static\style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,900;1,100&display=swap" rel="stylesheet">
+    <title>Credit Card</title>
+    <style>
+        .limit {
+            
+            padding-left: 20px;
+            
+        }
+        .sex{
+            /* padding-left: 20px;
+            box-sizing: border-box;
+            color: brown;
+            background-position: 100%; */
+            
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            margin-left: 10px;
+            /* text-align: center; */
+           
+           
+        
+
+        }
+        .education{
+            /* padding-left: 20px; */
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            margin-left: 10px;
+
+        }
+        .marriage{
+            padding-left: 20px;
+        }
+        .age{
+            padding-left: 20px;
+        }
+        .Repayment{
+            padding-left: 20px;
+        }
+        .bill{
+            padding-left: 20px;
+        }
+        .Pay{
+            padding-left: 20px;
+        }
+        .button{
+            padding-left: 20px;
+        }
+        *{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;;
+
+}
+.cr{
+        min-width: 100vh;
+        width: 100%;
+        background-color: #065d57e1;
+
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+nav img{
+    width: 50px;
+
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+    
+}
+
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+    
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+.nav-links ul li::after{
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: #660a04;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+    </style>
+</head>
+<body>
+    <h2 style="font-size: 30; text-align: center; font-weight: bold; "><u>Credit Card Defaulter Prediction</u></h2>
+    <section class="header">
+        <nav>
+            <a href="credit.html"><img src="logo1.png"></a>
+            <div class="nav-links" >
+                <ul >
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Github</a></li>
+                    <li><a href="">Gmail</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </section>
+    <form action="" method="post">
+        <div class="limit">
+            <label class="form-label" id="amt">Limit Balance:-</label>
+            <input class="form-control" type="number" name="LIMIT_BAL" placeholder="Enter Amount of Credit given" required />
+            <br>
+       
+            <label class="form-label" id="bio">SEX:-</label>
+            <input type="radio" id="male" name="SEX" value="male">
+            <label for="male" style="color: rgb(255, 255, 255);">Male</label>
+            <input type="radio" id="female" name="SEX" value="female">
+            <label for="female" style="color: rgb(255, 255, 255);">Female</label><br></div>
+        <br>
+       
+            <label class="form-label" id="bio">Education:-</label>
+            <select class="form-control" name="EDUCATION" placeholder="Select Educational Qualification" required>
+                <option value="" disabled selected hidden>Select Educational Qualification</option>
+                <option value="graduate school">Graduate school</option>
+                <option value="university">University</option>
+                <option value="high school">High school</option>
+                <option value="others">Others</option>    
+            </select>
+       <br>
+            <label class="form-label" id="bio">Marital Status:-</label>
+            <select class="form-control" name="MARRIAGE" placeholder="Select Marital Staus" required>
+                <option value="" disabled selected hidden>Select Marital Status</option>
+                <option value="married">Married</option>
+                <option value="single">Single</option>
+                <option value="others">Others</option>    
+            </select>
+        
+        <br>
+        
+        <label class="form-label" id="bio">Age:-</label>
+        <input class="form-control" type="number" name="AGE" placeholder="Enter Age of the person" required />
+       
+        <br>
+        
+            <label class="form-label" id="Rep">Repayment_status(September):-</label>
+            <select class="form-control" name="PAY_1" placeholder="No. of months payment delayed" required>
+                <option value="" disabled selected hidden>Payment delayed(months)</option>
+                <option value="0">0 pay duly</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>    
+                <option value="3">3 months</option>  
+                <option value="4">4 months</option>  
+                <option value="5">5 months</option>  
+                <option value="6">6 months</option>  
+                <option value="7">7 months</option>  
+                <option value="8">8 months</option>                          
+            </select>
+       
+        
+        <br>
+        
+            <label class="form-label" id="Rep">Repayment_status(August):-</label>
+            <select class="form-control" name="PAY_2" placeholder="No. of months payment delayed" required>
+                <option value="" disabled selected hidden>Payment delayed(months)</option>
+                <option value="0">0 pay duly</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>    
+                <option value="3">3 months</option>  
+                <option value="4">4 months</option>  
+                <option value="5">5 months</option>  
+                <option value="6">6 months</option>  
+                <option value="7">7 months</option>  
+                <option value="8">8 months</option>                          
+            </select>
+        
+        <br>
+       
+            <label class="form-label" id="Rep">Repayment_status(July):-</label>
+            <select class="form-control" name="PAY_3" placeholder="No. of months payment delayed" required>
+                <option value="" disabled selected hidden>Payment delayed(months)</option>
+                <option value="0">0 pay duly</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>    
+                <option value="3">3 months</option>  
+                <option value="4">4 months</option>  
+                <option value="5">5 months</option>  
+                <option value="6">6 months</option>  
+                <option value="7">7 months</option>  
+                <option value="8">8 months</option>                          
+            </select>
+    
+        <br>
+       
+            <label class="form-label" id="Rep">Repayment_status(June):-</label>
+            <select class="form-control" name="PAY_4" placeholder="No. of months payment delayed" required>
+                <option value="" disabled selected hidden>Payment delayed(months)</option>
+                <option value="0">0 pay duly</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>    
+                <option value="3">3 months</option>  
+                <option value="4">4 months</option>  
+                <option value="5">5 months</option>  
+                <option value="6">6 months</option>  
+                <option value="7">7 months</option>  
+                <option value="8">8 months</option>                          
+            </select>
+        
+        <br>
+        
+            <label class="form-label" id="Rep">Repayment_status(May):-</label>
+            <select class="form-control" name="PAY_5" placeholder="No. of months payment delayed" required>
+                <option value="" disabled selected hidden>Payment delayed(months)</option>
+                <option value="0">0 pay duly</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>    
+                <option value="3">3 months</option>  
+                <option value="4">4 months</option>  
+                <option value="5">5 months</option>  
+                <option value="6">6 months</option>  
+                <option value="7">7 months</option>  
+                <option value="8">8 months</option>                          
+            </select>
+  
+        <br>
+      
+            <label class="form-label" id="Rep">Repayment_status(April):-</label>
+            <select class="form-control" name="PAY_6" placeholder="No. of months payment delayed" required>
+                <option value="" disabled selected hidden>Payment delayed(months)</option>
+                <option value="0">0 pay duly</option>
+                <option value="1">1 month</option>
+                <option value="2">2 months</option>    
+                <option value="3">3 months</option>  
+                <option value="4">4 months</option>  
+                <option value="5">5 months</option>  
+                <option value="6">6 months</option>  
+                <option value="7">7 months</option>  
+                <option value="8">8 months</option>                          
+            </select>
+    
+        <br>
+       
+            <label class="form-label" id="amt">Bill Amount(September):-</label>
+            <input class="form-control" type="number" name="BILL_AMT1" placeholder="Enter Bill_Amt for September month" required />
+     
+        <br>
+   
+            <label class="form-label" id="amt">Bill Amount(August):-</label>
+            <input class="form-control" type="number" name="BILL_AMT2" placeholder="Enter Bill_Amt for August month" required />
+
+        <br>
+        
+            <label class="form-label" id="amt">Bill Amount(July):-</label>
+            <input class="form-control" type="number" name="BILL_AMT3" placeholder="Enter Bill_Amt for August month" required />
+     
+        <br>
+       
+            <label class="form-label" id="amt">Bill Amount(June):-</label>
+            <input class="form-control" type="number" name="BILL_AMT4" placeholder="Enter Bill_Amt for August month" required />
+      
+        <br>
+        
+            <label class="form-label" id="amt">Bill Amount(May):-</label>
+            <input class="form-control" type="number" name="BILL_AMT5" placeholder="Enter Bill_Amt for August month" required />
+        
+        <br>
+        
+            <label class="form-label" id="amt">Bill Amount(April):-</label>
+            <input class="form-control" type="number" name="BILL_AMT6" placeholder="Enter Bill_Amt for August month" required />
+      
+        
+        <br>
+       
+            <label class="form-label" id="pay">Payment_Amount(September):-</label>
+            <input class="form-control" type="number" name="PAY_AMT1" placeholder="Enter Amount of previous payment in September" required />
+     
+        
+        <br>
+        
+            <label class="form-label" id="pay">Payment_Amount(August):-</label>
+            <input class="form-control" type="number" name="PAY_AMT2" placeholder="Enter Amount of previous payment in August" required />
+       
+        
+        <br>
+        
+            <label class="form-label" id="pay">Payment_Amount(July):-</label>
+            <input class="form-control" type="number" name="PAY_AMT3" placeholder="Enter Amount of previous payment in July" required />
+       
+        
+        <br>
+       
+            <label class="form-label" id="pay">Payment_Amount(June):-</label>
+            <input class="form-control" type="number" name="PAY_AMT4" placeholder="Enter Amount of previous payment in June" required />
+        
+        
+        <br>
+      
+            <label class="form-label" id="pay">Payment_Amount(May):-</label>
+     
+        
+        <br>
+       
+            <label class="form-label" id="pay">Payment_Amount(April):-</label>
+            <input class="form-control" type="number" name="PAY_AMT6" placeholder="Enter Amount of previous payment in April" required />
+        <br>
+       
+        <br>
+       
+            <input class="btn btn-danger" type="submit" value="Predict Defaulter" required />
+        </div>
+        
+
+    </form>
+</body>
+</html>

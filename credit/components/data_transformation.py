@@ -77,44 +77,44 @@ class DataTransformation:
             X_test = test_df.drop(TARGET_COLUMN,axis=1)
             y_test = test_df[TARGET_COLUMN]
      
-            logging.info("define numerical Columns")
-            # define numerical columns
-            logging.info("Train_Numeric")
-            train_numeric_columns = X_train.select_dtypes(include=['int64','float64']).columns
-            logging.info("Test_Numeric")
-            test_numeric_columns = X_test.select_dtypes(include=['int64','float64']).columns
-            numeric__train_df=train_df[train_numeric_columns]
-            numeric_test_df=test_df[test_numeric_columns]
+            # logging.info("define numerical Columns")
+            # # define numerical columns
+            # logging.info("Train_Numeric")
+            # train_numeric_columns = X_train.select_dtypes(include=['int64','float64']).columns
+            # logging.info("Test_Numeric")
+            # test_numeric_columns = X_test.select_dtypes(include=['int64','float64']).columns
+            # numeric__train_df=train_df[train_numeric_columns]
+            # numeric_test_df=test_df[test_numeric_columns]
 
 
-            logging.info("define categorical columns")
-            # define categorical columns
-            train_categorical_columns = X_train.select_dtypes(include=['object','category']).columns
-            logging.info("Test_Categorical")
-            test_categorical_columns = X_test.select_dtypes(include=['object','category']).columns
-            logging.info("Train_Categorical")
-            categorical_train_df=train_df[train_categorical_columns]
+            # logging.info("define categorical columns")
+            # # define categorical columns
+            # train_categorical_columns = X_train.select_dtypes(include=['object','category']).columns
+            # logging.info("Test_Categorical")
+            # test_categorical_columns = X_test.select_dtypes(include=['object','category']).columns
+            # logging.info("Train_Categorical")
+            # categorical_train_df=train_df[train_categorical_columns]
 
-            logging.info("Test_Categorical")
-            categorical__test_df=test_df[test_categorical_columns]    
-            # print columns
-            logging.info('We have {} Train numerical features : {}'.format(len(train_numeric_columns), train_numeric_columns))
-            logging.info('We have {} Test numerical features : {}'.format(len(test_numeric_columns), test_numeric_columns))
-            logging.info('\nWe have {} Train categorical features : {}'.format(len(train_categorical_columns), train_categorical_columns))
-            logging.info('\nWe have {} Test categorical features : {}'.format(len(test_categorical_columns), test_categorical_columns))
+            # logging.info("Test_Categorical")
+            # categorical__test_df=test_df[test_categorical_columns]    
+            # # print columns
+            # logging.info('We have {} Train numerical features : {}'.format(len(train_numeric_columns), train_numeric_columns))
+            # logging.info('We have {} Test numerical features : {}'.format(len(test_numeric_columns), test_numeric_columns))
+            # logging.info('\nWe have {} Train categorical features : {}'.format(len(train_categorical_columns), train_categorical_columns))
+            # logging.info('\nWe have {} Test categorical features : {}'.format(len(test_categorical_columns), test_categorical_columns))
 
-            #numerical pipeline
-            logging.info("Creating Numerical Pipeline")
-            numerical_pipeline=Pipeline([('feature_scaling',StandardScaler())])
+            # #numerical pipeline
+            # logging.info("Creating Numerical Pipeline")
+            # numerical_pipeline=Pipeline([('feature_scaling',StandardScaler())])
 
-            #Categorical pipeline
-            logging.info("Creating Categorical Pipeline")
-            categorical_pipeline=Pipeline([('categorical_encoder', OrdinalEncoder())])
+            # #Categorical pipeline
+            # logging.info("Creating Categorical Pipeline")
+            # categorical_pipeline=Pipeline([('categorical_encoder', OrdinalEncoder())])
 
-            logging.info("Combing both numerical and categorical pipeline")
-            column_pipeline=ColumnTransformer([
-                ("numerical_pipeline",numerical_pipeline,train_numeric_columns),
-                ("categorical_pipeline",categorical_pipeline,train_categorical_columns)])
+            # logging.info("Combing both numerical and categorical pipeline")
+            # column_pipeline=ColumnTransformer([
+            #     ("categorical_pipeline",categorical_pipeline,train_categorical_columns),
+            #     ("numerical_pipeline",numerical_pipeline,train_numeric_columns)])
             # Ordinal_encoder=OneHotEncoder()
 
             # X_train=Ordinal_encoder.fit_transform(X_train[['SEX', 'EDUCATION', 'MARRIAGE']])
@@ -122,6 +122,15 @@ class DataTransformation:
             # # Standard_Scaler=StandardScaler()
 
             # transformation_pipleine = DataTransformation.get_data_transformer_object()
+            scaler=StandardScaler()
+            scaler.fit(X_train)
+
+            X_train=scaler.transform(X_train)
+            X_test=scaler.transform(X_test)
+
+
+
+
             logging.info("Label encoder for Target encoder")
             label_encoder=LabelEncoder()
             label_encoder.fit(y_train)
@@ -130,11 +139,11 @@ class DataTransformation:
             y_test=label_encoder.transform(y_test)
             
 
-            logging.info("column_pipeline transformation for Input variable")
-            column_pipeline.fit(X_train)
+            # logging.info("column_pipeline transformation for Input variable")
+            # scaler.fit(X_train)
 
-            X_train=column_pipeline.transform(X_train)
-            X_test=column_pipeline.transform(X_test)
+            # X_train=scaler.transform(X_train)
+            # X_test=scaler.transform(X_test)
             
 
 
@@ -162,7 +171,7 @@ class DataTransformation:
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_test_path,
                                         array=test_arr)
 
-            utils.save_object(file_path=self.data_transformation_config.transform_object_path,obj=column_pipeline)
+            utils.save_object(file_path=self.data_transformation_config.transform_object_path,obj=scaler)
 
             utils.save_object(file_path=self.data_transformation_config.target_encoder_path,obj=label_encoder)
 

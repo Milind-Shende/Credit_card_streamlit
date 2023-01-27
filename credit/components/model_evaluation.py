@@ -22,8 +22,8 @@ class ModelEvaluation:
                     logging.info(f"{'>>'*20} Model Evaluation{'<<'*20}")
                     self.model_eval_config=model_eval_config
                     self.data_ingestion_artifact=data_ingestion_artifact
-                    self.data_transformation_artifact=data_ingestion_artifact
-                    self.model_trainer_artifact=data_ingestion_artifact
+                    self.data_transformation_artifact=data_transformation_artifact
+                    self.model_trainer_artifact=model_trainer_artifact
                     self.model_resolver = ModelResolver()
 
                 except Exception as e:
@@ -68,8 +68,8 @@ class ModelEvaluation:
             target_df=test_df[TARGET_COLUMN]
             y_true=target_encoder.transform(target_df)
 
-            input_feature=list(transformer.feature_name_in_)
-            input_arr=transformer.transform(test_df[input_feature])
+            # input_feature=list(transformer.feature_name_in_)
+            input_arr=transformer.transform(test_df)
             y_pred=model.predict(input_arr)
             print(f"Prediction using previous model: {target_encoder.inverse_transform(y_pred[:5])}")
             previous_model_score=f1_score(y_true=y_true,y_pred=y_pred)
@@ -77,8 +77,8 @@ class ModelEvaluation:
 
 
              # accuracy using current trained model
-            input_feature_name = list(current_transformer.feature_names_in_)
-            input_arr =current_transformer.transform(test_df[input_feature_name])
+            # input_feature_name = list(current_transformer.feature_names_in_)
+            input_arr =current_transformer.transform(test_df)
             y_pred = current_model.predict(input_arr)
             y_true =current_target_encoder.transform(target_df)
             print(f"Prediction using trained model: {current_target_encoder.inverse_transform(y_pred[:5])}")

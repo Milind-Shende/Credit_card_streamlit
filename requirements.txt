@@ -18,4 +18,7 @@ PyYAML
 numpy
 scikit-learn
 Flask
+mlflow
+requests
+waitress==2.1.2
 -e .
