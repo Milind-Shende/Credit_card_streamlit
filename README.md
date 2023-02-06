@@ -24,15 +24,15 @@
 
 ## 📄 Documentation
 
-[Detailed Project Report.pdf](https://drive.google.com/file/d/1vQvUpEL_7mlt1_MWI1Z06poNB4eEKuRG/view?usp=sharing)
+[DETAILED PROJECT REPORT .pdf](https://drive.google.com/file/d/1vQvUpEL_7mlt1_MWI1Z06poNB4eEKuRG/view?usp=sharing)
 
-[High Level Document.pdf](https://drive.google.com/file/d/1HmdO7YcsZQ-GVmKPYkc1izOIqrHVdJFZ/view?usp=sharing)
+[HIGH LEVEL DOCUMENT.pdf](https://drive.google.com/file/d/1HmdO7YcsZQ-GVmKPYkc1izOIqrHVdJFZ/view?usp=sharing)
 
 [LOW LEVEL DOCUMENT.pdf](https://drive.google.com/file/d/1iIs8KJUd51k_p6DaubdlMAq8Ydcm2USh/view?usp=sharing)
 
-[Architecture.pdf](https://drive.google.com/file/d/1mAoQCZDLoWjRYG9yoimVMmR0XpNyhnQ6/view?usp=sharing)
+[ARCHITECTURE.pdf](https://drive.google.com/file/d/1mAoQCZDLoWjRYG9yoimVMmR0XpNyhnQ6/view?usp=sharing)
 
-[wireframe document.pdf](https://drive.google.com/file/d/1xMECxO3t93lZKR6ZCvk4x6nY2vvdELff/view?usp=sharing)
+[WIRFRAME_DOCUMENT.pdf](https://drive.google.com/file/d/1xMECxO3t93lZKR6ZCvk4x6nY2vvdELff/view?usp=sharing)
 
 ##⚡ Deployment
 
