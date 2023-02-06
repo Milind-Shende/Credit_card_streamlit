@@ -34,3 +34,16 @@
 
 [wireframe document.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662952/wireframe.document.pdf)
 
+⚡**Deployment**
+
+Deployed on web using AWS url :http://ec2-65-2-178-228.ap-south-1.compute.amazonaws.com:8080/
+
+⚡**Demo Video**
+
+https://www.youtube.com/watch?v=YkiIHy1gA8o&feature=youtu.be
+
+
+
+
+
+
