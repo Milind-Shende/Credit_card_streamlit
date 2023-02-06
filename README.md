@@ -36,11 +36,11 @@
 
 ##⚡ Deployment
 
-Deployed on web using AWS url :http://ec2-65-2-178-228.ap-south-1.compute.amazonaws.com:8080/
+Deployed on web using AWS url:-http://ec2-65-2-178-228.ap-south-1.compute.amazonaws.com:8080/
 
 ## ⚡ Demo Video
 
-For Project Demo click hear :- https://www.youtube.com/watch?v=YkiIHy1gA8o&feature=youtu.be
+[For Project Demo click hear](https://www.youtube.com/watch?v=YkiIHy1gA8o&feature=youtu.be)
 
 ## 🛠️ Tools & Technogies Used
 
