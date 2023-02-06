@@ -26,7 +26,7 @@
 
 [Detailed Project Report.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662939/Detailed.Project.Report.pdf)
 
-[High Level Document.pdf]([https://drive.google.com/drive/folders/1Hx83KrU6I4MW0zhRET4Ze6sJ7RQEjQYp](https://drive.google.com/file/d/1HmdO7YcsZQ-GVmKPYkc1izOIqrHVdJFZ/view?usp=sharing))
+[High Level Document.pdf](https://drive.google.com/file/d/1HmdO7YcsZQ-GVmKPYkc1izOIqrHVdJFZ/view?usp=sharing)
 
 [LOW LEVEL DOCUMENT.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662950/LOW.LEVEL.DOCUMENT.pdf)
 
