@@ -19,11 +19,12 @@
     <section class="header">
       <nav>
           <a href="index.html"></a>
-          <div class="nav-links" >
+          <div class="nav-links">
                 <ul >
                   <li><a href="https://www.kaggle.com/datasets/uciml/default-of-credit-card-clients-dataset/" target="_blank" style="padding-right: 100px;">About</a></li>
                   <li><a href="https://github.com/Milind-Shende/Credit-Card" target="_blank" style="padding-right: 100px;">Github</a></li>
-              </ul>
+                  <li><a style="padding-right: 100px;">Design By Milind Shende</a></li>
+                </ul>
           </div>
       </nav>
   </section>
@@ -45,21 +46,21 @@
           
         </select><td>
      
-      <td><label for="MARRIAGE"><b>Marital Status:-</b></label>
-        <select name="MARRIAGE" id="MARRIAGE">
-        <option value="1">Married</option>
-        <option value="2">Single</option>
-        <option value="3">Others</option>
-        
-        
-      </select><td>
-       
       <td><label for="EDUCATION"><b>Education Level:-</b></label>
         <select name="EDUCATION" id="EDUCATION">
         <option value="1">Graduate school</option>
         <option value="2">University</option>
         <option value="3">High school</option>
-        <option value="4">Others</option><td>
+        <option value="4">Others</option>
+        
+        
+      </select><td>
+       
+      <td><label for="MARRIAGE"><b>Marital Status:-</b></label>
+        <select name="MARRIAGE" id="MARRIAGE">
+        <option value="1">Married</option>
+        <option value="2">Single</option>
+        <option value="3">Others</option><td>
       </select>
       <td><label for="AGE"> <b>Age :</b> </label>
           <input type = "number"  id = "AGE" name = "AGE" placeholder = "YEARS" required = "required" /><td>
@@ -186,7 +187,7 @@
       <input type = "number" step = "0.01"  id = "PAY_AMT_SEPT" name = "PAY_AMT_SEPT" placeholder = "NT DOLLARS" required = "required" /></td>
       <td><label for="PAY_AMT_AUGUST"> <b>Pay Amount For Aug:</b> </label>
       <input type = "number" step = "0.01"  id = "PAY_AMT_AUGUST" name = "PAY_AMT_AUGUST" placeholder = "NT DOLLARS" required = "required" /></td>
-      <td><label for="PAY_AMT_JULY"> <b>Pay Amount For July:</b> </label>
+      <td><label for="PAY_AMT_JULY"> <b>Pay Amount For July :</b></label>
       <input type = "number" step = "0.01"  id = "PAY_AMT_JULY" name = "PAY_AMT_JULY" placeholder = "NT DOLLARS" required = "required" /></td>
     </tr>
     <tr>
@@ -203,6 +204,6 @@
   
   <button type="submit" class="btn btn-primary btn-block btn-large" style="padding: 10px 15px" >Predict</button>
       {{ prediction_text }}
-    </form>
+</form>
 </body>
 </html>

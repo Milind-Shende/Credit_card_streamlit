@@ -21,4 +21,7 @@ Flask
 mlflow
 requests
 waitress==2.1.2
+gunicorn
+pickle-mixin
+streamlit
 -e .

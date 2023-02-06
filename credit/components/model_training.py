@@ -25,7 +25,7 @@ class ModelTrainer:
     def train_model(self,X,y):
         try:
             logging.info("Training Model With XgboostClassifier")
-            xgboost_clf=XGBClassifier(random_state= 0, n_estimators= 130, max_depth= 7)
+            xgboost_clf=XGBClassifier(random_state=100,n_estimators= 130, max_depth= 7)
             xgboost_clf.fit(X,y)
             return xgboost_clf
         except Exception as e:
