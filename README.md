@@ -25,8 +25,12 @@
 📄**Documentation**
 
 [Detailed Project Report.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662939/Detailed.Project.Report.pdf)
+
 [High Level Document.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662948/High.Level.Document.pdf)
+
 [LOW LEVEL DOCUMENT.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662950/LOW.LEVEL.DOCUMENT.pdf)
+
 [Architecture.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662951/Architecture.pdf)
+
 [wireframe document.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662952/wireframe.document.pdf)
 
