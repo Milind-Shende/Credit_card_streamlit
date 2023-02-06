@@ -18,7 +18,15 @@
 
 **Credit card default is a major issue for financial institutions, leading to significant financial losses. As a result, it is important for banks and other lenders to be able to accurately predict which customers are at risk of defaulting on their credit card payments.**
 
-**Project Tree Diagram**
-
+🌲**Project Tree Diagram**
 
 ![Tree diagram](https://user-images.githubusercontent.com/103568452/216969847-c5b20524-e9bd-478a-b051-08d074f23566.jpg)
+
+📄**Documentation**
+
+[Detailed Project Report.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662939/Detailed.Project.Report.pdf)
+[High Level Document.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662948/High.Level.Document.pdf)
+[LOW LEVEL DOCUMENT.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662950/LOW.LEVEL.DOCUMENT.pdf)
+[Architecture.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662951/Architecture.pdf)
+[wireframe document.pdf](https://github.com/Milind-Shende/Credit-Card/files/10662952/wireframe.document.pdf)
+
