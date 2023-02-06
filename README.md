@@ -48,5 +48,5 @@ For Project Demo click hear :- https://www.youtube.com/watch?v=YkiIHy1gA8o&featu
 
 ## Author✍
 
-* [@Milind_Shende]([https://www.google.com](https://github.com/Milind-Shende))
+* [@Milind_Shende](https://github.com/Milind-Shende)
 
