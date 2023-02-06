@@ -1,4 +1,4 @@
-💳 ## **Credit Card Default Prediction**
+💳 **## Credit Card Default Prediction**
 
 **This is a machine learning model for predicting credit card default. The model uses historical credit card data to determine the likelihood of a credit card holder defaulting on their payments.This is a classification model for a most common dataset, Credit Card defaulter prediction. Prediction of the next month credit card defaulter based on demographic and last six months behavioral data of customers.**
 
