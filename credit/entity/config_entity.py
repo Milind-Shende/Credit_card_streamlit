@@ -24,7 +24,7 @@ class DataIngestionConfig:
 
     def __init__(self,training_pipeline_config:TrainingPipelineConfig):
         try:
-            self.database_name="CreditCard"
+            self.database_name="Credit"
             self.collection_name="Default"
             #Below code will create a file with name "data_ingestion in artifact folder
             self.data_ingestion_dir = os.path.join(training_pipeline_config.artifact_dir , "data_ingestion")

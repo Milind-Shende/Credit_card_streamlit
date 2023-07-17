@@ -16,7 +16,7 @@ xgboost==1.6.2
 pandas
 PyYAML
 numpy
-scikit-learn
+scikit-learn==1.3.0
 Flask
 mlflow
 requests

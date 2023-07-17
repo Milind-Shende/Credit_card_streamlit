@@ -7,8 +7,8 @@ from typing import List
 
 client= pymongo.MongoClient("mongodb+srv://Milind2487:mili%232487@milind2487.olvhy.mongodb.net/test")
 
-DATA_FILE_PATH="E:\Defaulters\Credit-Card\CreditCard.csv"
-DATABASE_NAME="CreditCard"
+DATA_FILE_PATH="D:\Project\Creditcard\Credit-Card\CreditCard1.csv"
+DATABASE_NAME="Credit"
 COLLECTION_NAME="Default"
 
 if __name__=="__main__":

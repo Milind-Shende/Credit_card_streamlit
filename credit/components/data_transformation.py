@@ -35,24 +35,46 @@ class DataTransformation:
             logging.info(train_df.shape)
             logging.info(test_df.shape)
 
+            numeric_features = ['LIMIT_BAL','AGE', 'PAY_1','PAY_2','PAY_3','PAY_4','PAY_5','PAY_6','BILL_AMT1','BILL_AMT2','BILL_AMT3','BILL_AMT4','BILL_AMT5','BILL_AMT6','PAY_AMT1','PAY_AMT2','PAY_AMT3','PAY_AMT4','PAY_AMT5','PAY_AMT6']
+            logging.info(f"Numerical Column{numeric_features}")
+
+
+            categorical_features = ['SEX','EDUCATION','MARRIAGE'] 
+            logging.info(f"CategoricalColumn{categorical_features}")
+            
+
+            logging.info("Numerical and Categorical Pipeline Transformation")
+            numeric_transformer= Pipeline(steps=[('scaler', MinMaxScaler(feature_range=(-1, 1)))])
+            categorical_transformer = Pipeline(steps=[ ('onehot', OneHotEncoder(sparse=True, handle_unknown='ignore'))])
+
+            logging.info("Numerical and Categorical Column Transformation")
+            transformer = ColumnTransformer(transformers=[('num', numeric_transformer, numeric_features),
+                                                            ('cat', categorical_transformer, categorical_features)])
+
+           
+
             logging.info("Spliting Train Into X_train And y_train")
+           
             X_train = train_df.drop(TARGET_COLUMN,axis=1)
             y_train = train_df[TARGET_COLUMN]
 
+            logging.info(X_train.shape)
+            logging.info(y_train.shape)
+
+            logging.info("Transforming X_train Column Transform")
+            X_train=transformer.fit_transform(X_train)
+            
+
             logging.info("Spliting Test Into X_test And y_test")
+            
             X_test = test_df.drop(TARGET_COLUMN,axis=1)
             y_test = test_df[TARGET_COLUMN]
-     
-       
-            logging.info("Applying Standard Scaler")
-            scaler=StandardScaler()
-            scaler.fit(X_train)
 
-            X_train=scaler.transform(X_train)
-            X_test=scaler.transform(X_test)
+            logging.info(X_test.shape)
+            logging.info(y_test.shape)
 
-
-
+            logging.info("Transforming X_train Column Transform")
+            X_test=transformer.transform(X_test)
 
             logging.info("Label encoder for Target encoder")
             label_encoder=LabelEncoder()
@@ -60,7 +82,6 @@ class DataTransformation:
 
             y_train=label_encoder.transform(y_train)
             y_test=label_encoder.transform(y_test)
-            
 
             logging.info("Re-sampling the dataset using SMOTE method")
             smote = SMOTETomek(random_state=42)
@@ -70,6 +91,7 @@ class DataTransformation:
             logging.info(y_train.shape)
             logging.info(X_test.shape)
             logging.info(y_test.shape)
+                
 
             logging.info("train and test array concatenate")
             #train and test array
@@ -86,10 +108,11 @@ class DataTransformation:
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_test_path,
                                         array=test_arr)
 
-            utils.save_object(file_path=self.data_transformation_config.transform_object_path,obj=scaler)
+            utils.save_object(file_path=self.data_transformation_config.transform_object_path,obj=transformer)
 
             utils.save_object(file_path=self.data_transformation_config.target_encoder_path,obj=label_encoder)
 
+            
             data_transformation_artifact = artifact_entity.DataTransformationArtifact(
                 transform_object_path= self.data_transformation_config.transform_object_path,
                 transformed_train_path = self.data_transformation_config.transformed_train_path,
