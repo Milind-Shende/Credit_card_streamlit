@@ -44,7 +44,7 @@ class DataTransformation:
             
 
             logging.info("Numerical and Categorical Pipeline Transformation")
-            numeric_transformer= Pipeline(steps=[('scaler', MinMaxScaler(feature_range=(-1, 1)))])
+            numeric_transformer= Pipeline(steps=[('scaler', StandardScaler())])
             categorical_transformer = Pipeline(steps=[ ('onehot', OneHotEncoder(sparse=True, handle_unknown='ignore'))])
 
             logging.info("Numerical and Categorical Column Transformation")
