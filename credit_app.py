@@ -127,7 +127,8 @@ def prediction_page():
         # Make the prediction using the loaded model
         prediction = model.predict(input_arr)
         st.subheader('Prediction')
-        st.write(f'The predicted total charge is: {prediction[0]}')
+        prediction_text = "YES" if prediction[0] == 1 else "N0"
+        st.write(f'The predicted total charge is: {prediction_text}')
 
 
 
