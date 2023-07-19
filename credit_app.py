@@ -44,7 +44,7 @@ def about_page():
 
 def author():
     st.title("About Me")
-    st.write("Data Science with Strong knowledge in Data analysis and Machine Learning Skills With 2 Years of experience in Banking Operation And Including PGDM in Finance Management. looking out for the opportunity in the field of Data Science. I am actively seeking an environment where my passion for Data Science and my proficiency in data analysis and machine learning can be nurtured and challenged.")
+    st.write("I hold a PGDM in Finance Management and have 2 years of experience in banking operations. I possess strong knowledge in data analysis and machine learning skills, and I am currently working in the field of Data Science. I am seeking an environment where I can nurture and challenge my passion for Data Science and proficiency in data analysis and machine learning. Please feel free to check out my profile below, and if you have any doubts, we can connect on LinkedIn.")
     st.write(":blond-haired-man:Name:-Milind Shende")
     st.write(":calling: MObile No:-+91 9420699550")
     st.write(":e-mail: E-mail:-milind.shende24rediffmail.com")
