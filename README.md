@@ -20,7 +20,7 @@
 
 ##⚡ Deployment
 
-#Deployed on web using AWS url:-http://ec2-65-2-178-228.ap-south-1.compute.amazonaws.com:8080/
+#Deployed on web using AWS url:-https://credit-card-app.streamlit.app/
 
 
 ## Author✍
